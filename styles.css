@@ -1,0 +1,431 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header */
+header {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    font-style: italic;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: #fff;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #FF5733;
+    border-radius: 5px;
+}
+
+.btn-signup {
+    background-color: #FF5733;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: #fff;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #333;
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    background-color: #FF5733;
+    color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #e44b2d;
+}
+
+/* Modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Black with opacity */
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 900px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Form Styles in Modals */
+.modal form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal form label {
+    font-weight: bold;
+}
+
+.modal form input[type="text"],
+.modal form input[type="email"],
+.modal form input[type="password"] {
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 100%;
+}
+
+.modal form button {
+    background-color: #FF5733;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal form button:hover {
+    background-color: #e44b2d;
+}
+
+.bids-section {
+    padding: 20px;
+    background-color: #fff;
+}
+
+/* Style for the table to ensure buttons are aligned */
+.bidders-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.bidders-table th,
+.bidders-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.bidders-table th {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+/* Style to ensure buttons are aligned to the right */
+.bidders-table td:last-child,
+.bidders-table td:nth-last-child(2) {
+    text-align: right; /* Aligns the last two columns (Select and Close buttons) to the right */
+}
+
+/* Button Styles */
+.btn-select {
+    background-color: #4CAF50; /* Green background */
+    color: #fff; /* White text */
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1em; /* Font size for button text */
+}
+
+.btn-select:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.btn-close {
+    background-color: #f44336; /* Red background */
+    color: #fff; /* White text */
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1em; /* Font size for button text */
+    display: none; /* Initially hidden */
+}
+
+.btn-close:hover {
+    background-color: #e53935; /* Darker red on hover */
+}
+
+/* Optional: Style for the selected rows */
+.selected {
+    background-color: #f0f8ff; /* Light blue background for selected rows */
+}
+
+/* Table Styles */
+.bidders-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.bidders-table th,
+.bidders-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.bidders-table th {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+/* Align buttons to the right in the table rows */
+.bidders-table td:last-child,
+.bidders-table td:nth-last-child(2) {
+    text-align: right;
+}
+
+
+
+/* Search Section */
+.search {
+    padding: 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.search-bar input {
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 300px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #ff5733;
+    color: #fff;
+    font-size: 1em;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+}
+
+.search-bar button:hover {
+    background-color: #c43a1b;
+}
+/* Jobs Section */
+.jobs {
+    padding: 20px;
+    background-color: #fff;
+}
+
+.job-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.job-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.job-item h3 {
+    font-size: 1.2em;
+}
+
+.job-item p {
+    margin: 10px 0;
+}
+
+.btn-secondary {
+    background-color: #FF5733;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #e44b2d;
+}
+
+/* Post Job Section */
+.post-job {
+    padding: 20px;
+    background-color: #fff;
+}
+
+.post-job form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.post-job input,
+.post-job textarea {
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.post-job button {
+    background-color: #FF5733;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.post-job button:hover {
+    background-color: #e44b2d;
+}
+
+/* How It Works Section */
+.how-it-works {
+    padding: 20px;
+    background-color: #5ce86a;
+    text-align: center;
+}
+
+.how-it-works ol {
+    list-style: inherit;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.how-it-works li {
+    margin: 10px 0;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 15px 20px;
+    text-align: center;
+
+}
+
+footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+footer ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+footer ul li a {
+    color: #fff;
+}

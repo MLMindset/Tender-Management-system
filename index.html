@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkHub - Find Freelance Jobs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Tender MS</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#find-jobs-section">Find Jobs</a></li>
+                <li><a href="#post-job">Post a Job</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#" class="btn-signup" onclick="openSignInModal()">Sign In</a></li>
+                <li><a href="#" class="btn-signup" onclick="openSignUpModal()">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>TENDER MANAGEMENT SYSTEM</h1>
+            <p>Join our tender platform of professionals and find your next job or construction.A construction site is a piece of land where all the activities related to the location of a structure take part.</p>
+            <a href="#find-jobs-section" class="btn-primary">Get Started</a>
+        </div>
+    </section>
+
+    <section id="find-jobs-section" class="search">
+        <h2>Search Jobs</h2>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for jobs or projects...">
+            <button class="btn-search">Search</button>
+        </div>
+    </section>
+
+    <section class="jobs">
+        <h2>Available Jobs</h2>
+        <div class="job-list">
+            <div class="job-item">
+                <h3>Building construction</h3>
+                <p>Need a creative builder for faster and branding work.</p>
+                <p><strong>Budget:</strong> $1000</p>
+                <p><strong>Deadline:</strong> 2 year</p>
+                <a href="#" class="btn-secondary" onclick="openBidModal()">Bid Now</a>
+            </div>
+            <div class="job-item">
+                <h3>Roads construction</h3>
+                <p>Looking for an experienced Labour to create a road.</p>
+                <p><strong>Budget:</strong> $500</p>
+                <p><strong>Deadline:</strong> 5 year</p>
+                <a href="#" class="btn-secondary" onclick="openBidModal()">Bid Now</a>
+            </div>
+            <div class="job-item">
+                <h3>Industrial facilities</h3>
+                <p>Industrial construction deals with factories,power plants and ware house.</p>
+                <p><strong>Budget:</strong> $500</p>
+                <p><strong>Deadline:</strong> 10 year</p>
+                <a href="#" class="btn-secondary" onclick="openBidModal()">Bid Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sign In Modal -->
+    <div id="signInModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSignInModal()">&times;</span>
+            <h2>Sign In</h2>
+            <form id="signInForm">
+                <label for="signInEmail">Email:</label>
+                <input type="email" id="signInEmail" name="email" required>
+                <label for="signInPassword">Password:</label>
+                <input type="password" id="signInPassword" name="password" required>
+                <button type="submit" class="btn-primary">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div id="signUpModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSignUpModal()">&times;</span>
+            <h2>Sign Up</h2>
+            <form id="signUpForm">
+                <label for="signUpName">Name:</label>
+                <input type="text" id="signUpName" name="name" required>
+                <label for="signUpEmail">Email:</label>
+                <input type="email" id="signUpEmail" name="email" required>
+                <label for="signUpPassword">Password:</label>
+                <input type="password" id="signUpPassword" name="password" required>
+                <button type="submit" class="btn-primary">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+   <!-- Bid Modal -->
+   <div id="bidModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeBidModal()">&times;</span>
+        <h2>Submit Your Bid</h2>
+        <form id="bidForm" onsubmit="submitBid(event)">
+            <label for="bidAmount">Bid Amount:</label>
+            <input type="number" id="bidAmount" name="bidAmount" required>
+            <label for="bidderName">Bidder Name:</label>
+            <input type="text" id="bidderName" name="bidderName" required>
+            <label for="message">Message to Client:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit" class="btn-primary">Submit Bid</button>
+        </form>
+    </div>
+</div>
+
+<section class="bids-section">
+    <h2>Current Bids</h2>
+    <table class="bidders-table">
+        <thead>
+            <tr>
+                <th>Bid Amount</th>
+                <th>Message</th>
+                <th>Bidder Name</th>
+                <th>Date</th>
+                <th>Select</th>
+                <th>Close</th>
+            </tr>
+        </thead>
+        <tbody id="bidsTableBody">
+            <!-- Bids will be inserted here dynamically -->
+        </tbody>
+    </table>
+</section>
+
+<section class="selected-bids-section">
+    <h2>Selected Bids</h2>
+    <table class="bidders-table">
+        <thead>
+            <tr>
+                <th>Bid Amount</th>
+                <th>Message</th>
+                <th>Bidder Name</th>
+                <th>Date</th>
+                <th>Close</th>
+            </tr>
+        </thead>
+        <tbody id="selectedBidsTableBody">
+            <!-- Selected bids will be inserted here dynamically -->
+        </tbody>
+    </table>
+</section>
+    
+    
+    <section id="post-job" class="search"></section>
+    <section class="post-job">
+        <h1>Post a New Job</h1>
+        <form>
+            <label for="jobTitle">Job Title:</label>
+            <input type="text" id="jobTitle" name="jobTitle" required>
+            
+            <label for="jobDescription">Description:</label>
+            <textarea id="jobDescription" name="jobDescription" required></textarea>
+            
+            <label for="budget">Budget:</label>
+            <input type="number" id="budget" name="budget" required>
+            
+            <label for="deadline">Deadline:</label>
+            <input type="date" id="deadline" name="deadline" required>
+            
+            <button type="submit" class="btn-primary">Post Job</button>
+        </form>
+    </section>
+
+    <section id="how-it-works" class="search">
+    <section class="how-it-works">
+        <h1>How It Works</h1>
+        <p>Learn how to use our platform to find contruction jobs, bid now, and work with construction.</p>
+        <ol>
+            <li>Sign up to create an account.</li>
+            <li>Search for government jobs or post your own job.</li>
+            <li>Submit your bids or review applications.</li>
+            <li>Work with bid now and manage your deals.</li>
+        </ol>
+    </section>
+
+    <footer>
+        <p>&Copy :2024 TENDER MS.</p>
+        <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
